@@ -1,0 +1,50 @@
+<div [ngStyle]="{
+    'background':'#ccc',
+    'border-style':'solid',
+    'border-color':'blue',
+    'border-size':'10px',
+    'margin':'10px',
+    'padding':'10px'
+}">
+<h1>{{titulo}}</h1>
+
+
+<h2>Añadir marca</h2>
+<p>
+<input type="text" [(ngModel)]="mi_marca" (keyup.enter)="onBlur()"/>
+<button (click)="addMarca()">Guardar marca</button>
+<button (click)="getMarca()">Mostrar marca</button>
+<br>
+
+<br>{{mi_marca}}
+
+</p>
+<h2>Nuestras marcas</h2>
+<ul>
+    <li *ngFor="let marca of marcas" >{{marca}} <button (click)="delMarca(marca)">Borrar</button> </li>
+    
+</ul>
+
+<h2>En venta</h2>
+<ul>
+    <li *ngFor="let deportiva of zapatos">
+            <span [ngStyle]="{'text-decoration': !deportiva.stock ? 'line-through': 'none'}">
+            {{deportiva.nombre}} - <strong [class.highCost]="deportiva.precio > 80 && deportiva.stock">${{deportiva.precio}} </strong>
+            </span>
+            <span *ngIf="deportiva.precio <= 100 && deportiva.stock"
+            [style.background]="deportiva.precio <= 100 ? 'green' : 'blue'"
+            [style.color]="deportiva.precio <= 100 ? 'orange' : 'red'"
+        >¡OFERTA!</span>
+    </li>
+        
+</ul>
+
+<h2>El color predominante de los zapatos</h2>
+<input type="text" [(ngModel)]="color">
+<ul [ngSwitch]="color">
+    <li *ngSwitchCase="'black'">El color dominante es el <span [ngStyle]="{'background': color, 'color':'#ccc'}">{{color}}</span></li>
+    <li *ngSwitchCase="'blue'">El color dominante es el <span [ngStyle]="{'background': color, 'color':'#ccc'}">{{color}}</span></li>
+    <li *ngSwitchCase="'green'">El color dominante es el <span [ngStyle]="{'background': color, 'color':'#ccc'}">{{color}}</span></li>
+    <li [ngStyle]="{'background':color, 'color':'#ccc', 'margin':'1px'}">sexoooo</li>
+</ul>
+</div>

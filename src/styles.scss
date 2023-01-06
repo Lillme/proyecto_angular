@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+.highCost{
+    color: rgb(167, 124, 6);
+    background-color: red;
+}
+.active{
+    margin: 5px;
+    border-style: solid;
+    border-color: blueviolet;
+    color: rgb(0, 0, 0);
+}
