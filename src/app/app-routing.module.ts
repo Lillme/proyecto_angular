@@ -12,6 +12,7 @@ const routes: Routes = [
   {path:'zapatos',component:zapatosComponent},
   {path:'videogames',component:videogameComponent},
   {path:'cursos',component:CursosComponent},
+  {path:'cursos/:user',component:CursosComponent},
 
   {path:'',component:HomeComponent},
   {path: '**', redirectTo: 'home', pathMatch: 'full' },
